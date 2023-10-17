@@ -4,16 +4,17 @@
 
 SET PGPATH="bin\"
 SET SVPATH="Data\"
-SET PRJDB=FIS
-SET DBUSR=FIS
+SET PRJDB='DATABASE NAME'
+SET DBUSR='DBUSERNAME'
+
 FOR /F "TOKENS=1,2,3 DELIMS=/ " %%i IN ('DATE /T') DO SET d=%%i-%%j-%%k
 FOR /F "TOKENS=1,2,3 DELIMS=: " %%i IN ('TIME /T') DO SET t=%%i%%j%%k
 SET y=%date:~10,4%
 
 SET DBDUMP=%PRJDB%_%d%_%y%_%t%.backup
-echo AUTO BACKUP : FIS DATABASE
+echo AUTO BACKUP : 'NAME OF DB TO BACK UP'
 @ECHO OFF
-%PGPATH%pg_dump -h 34.72.164.60 -p 5432 -U FIS --format custom %PRJDB% > %SVPATH%%DBDUMP%
+%PGPATH%pg_dump -h 'YOUR HOST' -p 'YOUR PORT' -U 'YOUR DBUSERNAME' -w --format custom %PRJDB% > %SVPATH%%DBDUMP%
 
 echo Backup Taken Complete %SVPATH%%DBDUMP%
 

@@ -14,7 +14,7 @@ drive = GoogleDrive(gauth)
 
 # CONFIGURING BACKUP PATH AND FILE DIRECTORY
 
-folder = '1TY-lX91kxKqt0UgnYuwhfilgqf0yjYxy'
+folder = 'YOUR GDRIVE FOLDER ID'
 
 file_path = "none"
 if("--file" in  sys.argv):
